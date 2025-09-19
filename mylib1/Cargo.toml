@@ -1,0 +1,13 @@
+[package]
+name = "mylib1"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+rand = { workspace = true, features = ["std"] }
+
+[build-dependencies]
+cc.workspace = true
+
+[dev-dependencies]
+rand.workspace = true

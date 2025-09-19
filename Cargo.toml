@@ -1,0 +1,13 @@
+[workspace]
+resolver = "3"
+members = [
+    "myapp",
+    "mylib1",
+]
+
+[workspace.dependencies]
+cc = "1.0"
+rand = "0.9"
+regex = { version = "1.11", default-features = false, features = ["std"] }
+
+
