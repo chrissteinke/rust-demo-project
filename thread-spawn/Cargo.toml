@@ -1,5 +1,5 @@
 [package]
-name = "threading-demo"
+name = "thread-spawn"
 version = "0.0.0"
 edition = "2024"
 

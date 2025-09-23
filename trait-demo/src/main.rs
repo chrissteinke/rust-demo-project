@@ -55,7 +55,7 @@ fn main() {
     let mut v: Vec<Box<dyn Pet>> = Vec::new();
     v.push(Box::new(cat1));
     v.push(Box::new(dog1));
-
+    
     match  oldest(&v) {
         Some(pet) => {
             println!("The oldest pet is {pet:?}");

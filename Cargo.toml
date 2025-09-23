@@ -3,6 +3,11 @@ resolver = "3"
 members = [
     "myapp",
     "mylib1",
+    "thread-spawn",
+    "async-listener-demo",
+    "async-messaging",
+    "async-demo",
+    "trait-demo"
 ]
 
 [workspace.dependencies]

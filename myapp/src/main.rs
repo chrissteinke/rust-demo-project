@@ -1,3 +1,4 @@
+use std::fs::File;
 use mylib1;
 use mylib1::DataWrapper;
 
@@ -5,8 +6,20 @@ use mylib1::DataWrapper;
 fn force_drop(_obj: DataWrapper) {
 }
 
+use std::io::{Error, Read};
+use std::path::Path;
+
+
+#[derive(Debug)]
+struct Foo {
+    bar: i32,
+}
+
+
 fn main() {
     println!("Starting...");
+    let foo =  Foo{bar: 5};
+    println!("Foo ist {} {:?}", 5, &foo);
     let obj: DataWrapper = mylib1::DataWrapper::new("NATIVE_DATA")
         .expect("data object");
 
