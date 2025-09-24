@@ -70,6 +70,21 @@ impl DataWrapper {
     }
 }
 
+
+///
+///
+///
+impl Drop for DataWrapper {
+    fn drop(&mut self) {
+        match self {
+            DataWrapper::Foreign(ptr) => {
+                unsafe { free_data(*ptr) }
+            },
+            _ => (),
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -94,19 +109,5 @@ mod tests {
             .expect("data");
 
         assert_eq!(obj.value(), Some(6));
-    }
-}
-
-///
-///
-///
-impl Drop for DataWrapper {
-    fn drop(&mut self) {
-        match self {
-            DataWrapper::Foreign(ptr) => {
-                unsafe { free_data(*ptr) }
-            },
-            _ => (),
-        }
     }
 }

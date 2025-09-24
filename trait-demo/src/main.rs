@@ -5,7 +5,7 @@ trait Pet : Debug {
     fn age(&self) -> u32;
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 struct Dog {
     name: String,
     age: u32,

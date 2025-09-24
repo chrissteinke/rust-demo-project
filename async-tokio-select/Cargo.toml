@@ -1,0 +1,9 @@
+[package]
+name = "async-tokio-select"
+version = "0.0.0"
+edition = "2024"
+
+[dependencies]
+tokio-fs = "0.1"
+tokio = { version = "1.45", features = ["full"] }
+tokio-stream = "0.1"
