@@ -9,6 +9,8 @@ members = [
     "async-demo",
     "trait-demo",
     "async-tokio-select"
+,
+    "serde-json"
 ]
 
 [workspace.dependencies]
