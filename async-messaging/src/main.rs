@@ -1,27 +1,19 @@
-use std::sync::mpsc;
-use std::thread;
-use std::time::Duration;
+use tokio::sync::mpsc;
 
-struct Mesg(String);
+#[tokio::main]
+async fn main() {
+    let (tx, mut rx) = mpsc::channel(100);
 
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let vals = vec![
-            String::from("hi"),
-            String::from("from"),
-            String::from("the"),
-            String::from("thread"),
-        ];
-
-        for val in vals {
-            tx.send(val).unwrap();
-            thread::sleep(Duration::from_secs(1));
+    tokio::spawn(async move {
+        for i in 0..10 {
+            if let Err(_) = tx.send(i).await {
+                println!("receiver dropped");
+                return;
+            }
         }
     });
 
-    for received in rx {
-        println!("Got: {received}");
+    while let Some(i) = rx.recv().await {
+        println!("got = {}", i);
     }
 }

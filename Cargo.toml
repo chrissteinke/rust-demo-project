@@ -5,12 +5,14 @@ members = [
     "mylib1",
     "thread-spawn",
     "async-listener-demo",
-    "async-messaging",
+    "thread-messaging",
     "async-demo",
     "trait-demo",
     "async-tokio-select"
 ,
     "serde-json"
+,
+    "async-messaging"
 ]
 
 [workspace.dependencies]
